@@ -1,4 +1,4 @@
-# 🫁 Pneumonia Detection from Chest X-Ray Images Using CNN & Grad-CAM
+# Pneumonia Detection from Chest X-Ray Images Using CNN & Grad-CAM
 
 **Deep Learning Implementation with PyTorch & Transfer Learning**  
 **Author**: Ritam Bhoumik (Student Code: `BWU/BCA/24/160`)  
@@ -6,22 +6,22 @@
 
 ---
 
-## 📌 Repository Contents
+## Repository Contents
 
 | File | Description |
 | :--- | :--- |
-| 📓 **[`Pneumonia Detection.ipynb`](./Pneumonia%20Detection.ipynb)** | Complete Google Colab / Jupyter Notebook with data pipeline, ResNet-18 transfer learning model, 8-epoch training, independent test evaluation, ROC curve, confusion matrix, and Grad-CAM explainability heatmaps. |
+| **[`Pneumonia Detection.ipynb`](./Pneumonia%20Detection.ipynb)** | Complete Google Colab / Jupyter Notebook with data pipeline, ResNet-18 transfer learning model, 8-epoch training, independent test evaluation, ROC curve, confusion matrix, and Grad-CAM explainability heatmaps. |
 
 ---
 
-## 🔬 Model & Performance Summary
+## Model & Performance Summary
 
 - **Architecture**: Pretrained ResNet-18 with custom classification head (512 → 128 → 1), Batch Normalization, ReLU, and Dropout (0.4).
 - **Dataset**: Kaggle Chest X-Ray Pneumonia (Kermany et al.) resized to 224×224 with ImageNet normalization and clinical data augmentations (affine shifts, rotations, horizontal flips, contrast jitter).
 - **Optimization**: AdamW (lr: 1e-4, weight decay: 1e-2), ReduceLROnPlateau scheduler, and class-weighted BCE loss (`pos_weight = 0.340`).
 - **Explainability**: Grad-CAM (Gradient-weighted Class Activation Mapping) on the final residual block (`layer4[-1].conv2`) providing visual heatmaps of pulmonary infiltrates and consolidations.
 
-### 📊 Independent Test Set Results (624 Images)
+### Independent Test Set Results (624 Images)
 
 | Metric | Result | Description |
 | :--- | :--- | :--- |
@@ -30,11 +30,3 @@
 | **Specificity** | **69.66%** | 163 of 234 normal cases correctly identified |
 | **F1-Score** | **0.9127** | Harmonic mean of precision and recall for Pneumonia |
 | **ROC-AUC** | **0.9621** | Separability across all classification thresholds |
-
----
-
-## 🚀 How to Run
-
-Open [`Pneumonia Detection.ipynb`](./Pneumonia%20Detection.ipynb) directly in Google Colab or Jupyter Notebook:
-1. Ensure GPU acceleration is enabled (`Runtime` → `Change runtime type` → `T4 GPU`).
-2. Run cells sequentially to download the dataset via `kagglehub`, train the network, and generate Grad-CAM diagnostic visualizations.
